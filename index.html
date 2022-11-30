@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apple Watch Ultra - Apple (IT)</title>
+    <meta name="Description" content="Apple Watch Ultra. Capace e robusto, con GPS di precisione a doppia frequenza, fino a 36 ore di batteria e tre cinturini speciali." />
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap">
+</head>
+<body>
+    <video class="video-bg" src="video/watch.mp4" autoplay muted loop></video>
+    <div class="section watch">
+        <h1 class="title"> Il richiamo dell’avventura. </h1>
+    </div>
+    <div class="section watch">
+        <h2 class="title"> Ingegneria estrema. </h2>
+    </div>
+    <div class="section watch">
+        <h2 class="title"> Sembra un duro.<br>Perché lo è. </h2>
+    </div>
+    <div class="panel">
+        <div>
+            <p class="watch fade-in intro">Design</p>
+            <h2 class="watch fade-in title-big">Spingiti oltre.<br>Sfida i tuoi limiti.</h2>
+            <img  class="img-big-left" src="img/watch.jpg" alt="Apple Watch Ultra">
+        </div>
+    </div>
+    <script>
+        //elements
+        var elements_to_watch = document.querySelectorAll('.watch');
+        //function callback
+        var callback = function(items){
+            items.forEach((item) => {
+                if(item.isIntersecting){
+                    //if they enter the page I add in-page
+                    item.target.classList.add("in-page");
+                } else{
+                    //if they don't enter the page I remove in-page
+                    item.target.classList.remove("in-page");
+                }
+             });
+        }
+        //observer
+        //check if they are intersecting the page
+        var observer = new IntersectionObserver(callback, { threshold: 0.6 } );
+        //apply
+        elements_to_watch.forEach((element) => {
+            observer.observe(element);
+        });
+    </script>
+</body>
+</html>
